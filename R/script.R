@@ -6,11 +6,11 @@ library(dplyr)
 library(forcats)
 library(ggplot2)
 
-# Launch search query 
+# Launch search query
 dc_trends <- gtrends(keyword = "Datacamp",
                      time = paste("2014-01-01", Sys.Date()))
 
-
+# Plot interest over time
 dc_trends$interest_over_time %>%
   mutate(date = as.Date(date)) %>% 
   ggplot(aes(x = date, y = hits)) +
@@ -18,6 +18,7 @@ dc_trends$interest_over_time %>%
   scale_x_date(breaks = "13 weeks") +
   theme(axis.text.x = element_text(angle = 75, vjust = 0.58))
 
+# Plot interest by country
 dc_trends$interest_by_country %>% filter(!is.na(hits)) %>%
   mutate(location_2 = fct_lump_min(location, 10, w = hits),
          location_2 = fct_reorder(location_2, hits)) %>% 
