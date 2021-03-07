@@ -29,4 +29,3 @@ dc_trends$interest_by_country %>%
   geom_col() +
   coord_flip()
 
-# A final comment from R Studio
