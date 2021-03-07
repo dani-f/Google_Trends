@@ -28,3 +28,5 @@ dc_trends$interest_by_country %>%
   ggplot(aes(x = location_2, y = hits)) +
   geom_col() +
   coord_flip()
+
+# A final comment from R Studio
