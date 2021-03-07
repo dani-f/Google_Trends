@@ -10,12 +10,15 @@ library(ggplot2)
 dc_trends <- gtrends(keyword = "Datacamp",
                      time = paste("2014-01-01", Sys.Date()))
 
+
+
 # Plot interest over time
 dc_trends$interest_over_time %>%
-  mutate(date = as.Date(date)) %>% 
+  mutate(date = as.Date(date),
+         hits = as.numeric(ifelse(hits == "<1", 0, hits))) %>%  # hit count on 2014-03-01 is <1, which might be 0...
   ggplot(aes(x = date, y = hits)) +
   geom_line() +
-  scale_x_date(breaks = "13 weeks") +
+  scale_x_date(breaks = "26 weeks") +
   theme(axis.text.x = element_text(angle = 75, vjust = 0.58))
 
 # Plot interest by country
