@@ -25,7 +25,7 @@ dc_trends$interest_over_time %>%
        subtitle = paste0("search keyword: '", search_keyword, "'"),
        caption = paste0("Google Trends query results, ", Sys.Date()))
 
-ggsave("Interest_over_time.png", dpi = 72)
+ggsave(filename = "Output/interest_over_time.png", dpi = 72)
 
 # Plot interest by country
 dc_trends$interest_by_country %>%
@@ -41,4 +41,4 @@ dc_trends$interest_by_country %>%
        subtitle = paste0("search keyword: '", search_keyword, "'"),
        caption = paste0("Google Trends query results, ", Sys.Date()))
 
-ggsave("Interest_by_country.png", dpi = 72)
+ggsave("Output/interest_by_country.png", dpi = 72)
