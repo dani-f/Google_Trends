@@ -6,4 +6,4 @@ Setup for code:
   - RStudio (version 1.1.423)
   - gTrendsR package (version 1.4.8) (https://github.com/PMassicotte/gtrendsR)
 
-Visualizing the Google Trends query results for DataCamp, a data science education platform that teaches companies and individuals the skills they need to get data fluent.
+This project visualizes the Google Trends query results for a certain keyword.
