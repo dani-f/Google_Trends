@@ -1,4 +1,4 @@
-### DataCamp on Google Trends
+### Query results on Google Trends
 
 # Load pckgs
 library(gtrendsR)
@@ -7,7 +7,7 @@ library(forcats)
 library(ggplot2)
 
 # Launch search query
-dc_trends <- gtrends(keyword = "Datacamp",
+dc_trends <- gtrends(keyword = "Oda",
                      time = paste("2014-01-01", Sys.Date()))
 
 # Plot interest over time
@@ -21,6 +21,7 @@ dc_trends$interest_over_time %>%
 
 # Plot interest by country
 dc_trends$interest_by_country %>%
+  mutate(hits = as.numeric(hits)) %>%
   filter(!is.na(hits)) %>%
   mutate(location_2 = fct_lump_min(location, 10, w = hits),
          location_2 = fct_reorder(location_2, hits)) %>% 
