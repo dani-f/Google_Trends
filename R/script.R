@@ -23,8 +23,9 @@ dc_trends$interest_over_time %>%
   theme(axis.text.x = element_text(angle = 75, vjust = 0.58)) +
   labs(title = "Interest over time",
        subtitle = paste0("search keyword: '", search_keyword, "'"),
-       caption = paste0("Google Trends Query Results, ", Sys.Date()))
-ggsave("Interest_over_time.png")
+       caption = paste0("Google Trends query results, ", Sys.Date()))
+
+ggsave("Interest_over_time.png", dpi = 72)
 
 # Plot interest by country
 dc_trends$interest_by_country %>%
@@ -38,6 +39,6 @@ dc_trends$interest_by_country %>%
   coord_flip() +
   labs(title = "Interest by country",
        subtitle = paste0("search keyword: '", search_keyword, "'"),
-       caption = paste0("Google Trends Query Results, ", Sys.Date()))
+       caption = paste0("Google Trends query results, ", Sys.Date()))
 
-ggsave("Interest_by_country.png")
+ggsave("Interest_by_country.png", dpi = 72)
