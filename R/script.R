@@ -20,7 +20,7 @@ trends <- gtrends(keyword = c(keyword_1,keyword_2, keyword_3),
 # Plot interest over time
 trends$interest_over_time %>%
   mutate(date = as.Date(date),
-         hits = as.numeric(ifelse(hits == "<1", 0, hits))) %>%  # hit count on 2014-03-01 is <1, which might be 0...
+         hits = as.numeric(ifelse(hits == "<1", 0, hits))) %>%  # hit count sometimes is <1, which might be 0...
   ggplot(aes(x = date, y = hits, color = keyword)) +
   geom_line(size = 1) +
   scale_y_log10() +
@@ -44,7 +44,6 @@ trends$interest_by_country %>%
   geom_col() +
   coord_flip() +
   facet_grid(keyword ~ ., scales = "free") +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
   labs(title = "Interest by country",
        subtitle = "Top n countries per keyword",
        caption = paste0("Google Trends query results, ", Sys.Date())) +
