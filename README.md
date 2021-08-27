@@ -6,4 +6,4 @@ Setup for code:
   - RStudio (version 1.1.423)
   - gTrendsR package (version 1.4.8) (https://github.com/PMassicotte/gtrendsR)
 
-This project visualizes the Google Trends query results for a certain keyword.
+This project visualizes the Google Trends query results for certain keywords.
